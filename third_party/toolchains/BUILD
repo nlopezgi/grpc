@@ -55,6 +55,7 @@ platform(
         "@bazel_tools//platforms:linux",
         "@bazel_tools//tools/cpp:clang",
         "@com_github_bazelbuild_bazeltoolchains//constraints:xenial",
+        "@com_github_bazelbuild_bazeltoolchains//constraints/sanitizers:support_msan",
         "//third_party/toolchains/machine_size:large",
     ],
     remote_execution_properties = """
