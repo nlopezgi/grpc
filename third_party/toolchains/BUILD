@@ -36,17 +36,12 @@ platform(
         "@bazel_tools//platforms:linux",
         "@bazel_tools//tools/cpp:clang",
         "@com_github_bazelbuild_bazeltoolchains//constraints:xenial",
-        "@com_github_bazelbuild_bazeltoolchains//constraints/sanitizers:support_msan",
         "//third_party/toolchains/machine_size:standard",
     ],
     remote_execution_properties = """
         properties: {
           name: "container-image"
           value:"docker://gcr.io/cloud-marketplace/google/rbe-ubuntu16-04@sha256:9bd8ba020af33edb5f11eff0af2f63b3bcb168cd6566d7b27c6685e717787928"
-        }
-        properties: {
-          name: "gceMachineType"  # Small machines for majority of tests.
-          value: "n1-highmem-2"
         }
         """,
 )
@@ -59,17 +54,12 @@ platform(
         "@bazel_tools//platforms:linux",
         "@bazel_tools//tools/cpp:clang",
         "@com_github_bazelbuild_bazeltoolchains//constraints:xenial",
-        "@com_github_bazelbuild_bazeltoolchains//constraints/sanitizers:support_msan",
         "//third_party/toolchains/machine_size:large",
     ],
     remote_execution_properties = """
         properties: {
           name: "container-image"
           value:"docker://gcr.io/cloud-marketplace/google/rbe-ubuntu16-04@sha256:9bd8ba020af33edb5f11eff0af2f63b3bcb168cd6566d7b27c6685e717787928"
-        }
-        properties: {
-          name: "gceMachineType"  # Small machines for majority of tests.
-          value: "n1-standard-8"
         }
         """,
 )
@@ -82,17 +72,12 @@ toolchain(
         "@bazel_tools//platforms:linux",
         "@bazel_tools//platforms:x86_64",
         "@bazel_tools//tools/cpp:clang",
-        "@com_github_bazelbuild_bazeltoolchains//constraints:xenial",
-        "@com_github_bazelbuild_bazeltoolchains//constraints/sanitizers:support_msan",
-        "//third_party/toolchains/machine_size:standard",
-        "//third_party/toolchains/machine_size:large",
+        #"//third_party/toolchains/machine_size:large",
     ],
     target_compatible_with = [
-        # "//third_party/toolchains:rbe_ubuntu1604",
-        # "//third_party/toolchains:rbe_ubuntu1604_large",
         "@bazel_tools//platforms:linux",
         "@bazel_tools//platforms:x86_64",
     ],
-    toolchain = "@com_github_bazelbuild_bazeltoolchains//configs/ubuntu16_04_clang/1.1/bazel_0.16.1/default:cc-compiler-k8",
+    toolchain = "@com_github_bazelbuild_bazeltoolchains//configs/ubuntu16_04_clang/1.1/bazel_0.19.0/default:cc-compiler-k8",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 )
