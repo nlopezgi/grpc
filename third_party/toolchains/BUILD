@@ -64,20 +64,3 @@ platform(
         """,
 )
 
-# This target is auto-generated from release/cpp.tpl and should not be
-# modified directly.
-toolchain(
-    name = "cc-toolchain-clang-x86_64-default",
-    exec_compatible_with = [
-        "@bazel_tools//platforms:linux",
-        "@bazel_tools//platforms:x86_64",
-        "@bazel_tools//tools/cpp:clang",
-        #"//third_party/toolchains/machine_size:large",
-    ],
-    target_compatible_with = [
-        "@bazel_tools//platforms:linux",
-        "@bazel_tools//platforms:x86_64",
-    ],
-    toolchain = "@com_github_bazelbuild_bazeltoolchains//configs/ubuntu16_04_clang/1.1/bazel_0.19.0/default:cc-compiler-k8",
-    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
-)
